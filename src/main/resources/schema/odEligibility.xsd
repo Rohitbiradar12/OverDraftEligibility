@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.tigo.com/TCS"
+           xmlns:tcs="http://www.tigo.com/TCS"
+           elementFormDefault="qualified">
+
+   
+    <xs:element name="TCSRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="UserName" type="xs:string"/>
+                <xs:element name="TerminalType" type="xs:string"/>
+                <xs:element name="Password" type="xs:string"/>
+                <xs:element name="Function">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="param1" type="xs:string"/>
+                            <xs:element name="param2" type="xs:string"/>
+                            <xs:element name="param3" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="name" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    
+    <xs:element name="TCSReply">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Result" type="xs:int"/>
+                <xs:element name="Message" type="xs:string"/>
+                <xs:element name="param1" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
